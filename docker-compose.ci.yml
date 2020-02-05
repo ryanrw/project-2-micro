@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  user:
+    container_name: microservice_user
+    build: ./microservice-user
+    volumes:
+      - ./microservice-user/src:/usr/app/src
+    environment:
+      WAIT_HOSTS: microservice_db_user:5432
+      PORT: 4001
+      HOSTNAME: 0.0.0.0
+      PGHOST: microservice_db_user
+      PGUSER: postgres
+      PGDATABASE: users
+      PGPASSWORD: Th1s_Is_p@ssw0rd
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
+
+  database_user:
+    container_name: microservice_db_user
+    build: ./microservice-db-user
+    volumes:
+      - ./microservice-db-user/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
