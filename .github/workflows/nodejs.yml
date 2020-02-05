@@ -20,7 +20,7 @@ jobs:
         run: docker-compose -f docker-compose.ci.yml up -d
       - name: list docker process
         run: docker-compose ps
-      - name: list env in monolith_api
-        run: docker exec monolith_api printenv
+      - name: list env in microservice_user
+        run: docker exec microservice_user printenv
       - name: run test
-        run: docker exec monolith_api yarn jest --forceExit --detectOpenHandles --maxWorkers=10
+        run: docker exec microservice_user yarn jest --forceExit --detectOpenHandles --maxWorkers=10
