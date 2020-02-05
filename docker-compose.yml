@@ -17,7 +17,7 @@ services:
   database_user:
     hostname: db-user
     container_name: microservice_db_user
-    image: postgres:alpine
+    build: ./microservice-db-user
     volumes:
       - ./microservice-db-user/data:/var/lib/postgresql/data
     environment:
