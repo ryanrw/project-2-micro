@@ -1,0 +1,6 @@
+*/.env
+*/node_modules
+*/dist
+*/yarn-error.log
+microservice-db-user/data
+.DS_Store

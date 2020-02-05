@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  user:
+    hostname: user
+    container_name: microservice_user
+    build: ./microservice-user
+    volumes:
+      - ./microservice-user/src:/usr/app/src
+    environment:
+      WAIT_HOSTS: microservice_db_user:5432
+      PORT: 4001
+      HOSTNAME: 0.0.0.0
+    ports:
+      - 4001:4001
+
+  database_user:
+    hostname: db-user
+    container_name: microservice_db_user
+    image: postgres:alpine
+    volumes:
+      - ./microservice-db-user/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
+    ports:
+      - 2346:5432
