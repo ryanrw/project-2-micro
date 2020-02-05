@@ -1,19 +1,10 @@
-import { ApolloServer, gql } from "apollo-server"
+import { ApolloServer } from "apollo-server"
 import config from "./configs"
+import { typeDefs } from "./graphql/typedefs/"
+import { resolvers } from "./graphql/resolvers"
+import { context } from "./utils/context"
 
-const typeDefs = gql`
-  type Query {
-    test: String
-  }
-`
-
-const resolvers = {
-  Query: {
-    test: () => "query ok",
-  },
-}
-
-const server = new ApolloServer({ typeDefs, resolvers })
+const server = new ApolloServer({ typeDefs, resolvers, context })
 
 export function startServer() {
   const { hostname, port } = config
