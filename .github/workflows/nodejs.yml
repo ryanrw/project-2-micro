@@ -26,3 +26,5 @@ jobs:
         run: docker exec microservice_user yarn jest --forceExit --detectOpenHandles --maxWorkers=10
       - name: run posts test
         run: docker exec microservice_post yarn jest --forceExit --detectOpenHandles --maxWorkers=10
+      - name: run resume test
+        run: docker exec microservice_resume yarn jest --forceExit --detectOpenHandles --maxWorkers=10
