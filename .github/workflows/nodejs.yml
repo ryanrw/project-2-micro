@@ -22,5 +22,7 @@ jobs:
         run: docker-compose ps
       - name: list env in microservice_user
         run: docker exec microservice_user printenv
-      - name: run test
+      - name: run users test
         run: docker exec microservice_user yarn jest --forceExit --detectOpenHandles --maxWorkers=10
+      - name: run posts test
+        run: docker exec microservice_post yarn jest --forceExit --detectOpenHandles --maxWorkers=10
