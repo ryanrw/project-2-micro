@@ -48,3 +48,27 @@ services:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
     ports:
       - 2347:5432
+
+  resume:
+    hostname: resume
+    container_name: microservice_resume
+    build: ./microservice-resume
+    volumes:
+      - ./microservice-resume/src:/usr/app/src
+    environment:
+      WAIT_HOSTS: microservice_db_resume:5432
+      PORT: 4003
+      HOSTNAME: 0.0.0.0
+    ports:
+      - 4003:4003
+
+  database_resume:
+    hostname: db-resume
+    container_name: microservice_db_resume
+    build: ./microservice-db-resume
+    volumes:
+      - ./microservice-db-resume/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
+    ports:
+      - 2348:5432
