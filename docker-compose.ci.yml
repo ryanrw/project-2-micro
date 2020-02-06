@@ -4,8 +4,6 @@ services:
   user:
     container_name: microservice_user
     build: ./microservice-user
-    volumes:
-      - ./microservice-user/src:/usr/app/src
     environment:
       WAIT_HOSTS: microservice_db_user:5432
       PORT: 4001
@@ -19,8 +17,6 @@ services:
   database_user:
     container_name: microservice_db_user
     build: ./microservice-db-user
-    volumes:
-      - ./microservice-db-user/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
 
@@ -28,8 +24,6 @@ services:
     hostname: post
     container_name: microservice_post
     build: ./microservice-post
-    volumes:
-      - ./microservice-post/src:/usr/app/src
     environment:
       WAIT_HOSTS: microservice_db_post:5432
       PORT: 4002
@@ -44,8 +38,6 @@ services:
     hostname: db-post
     container_name: microservice_db_post
     build: ./microservice-db-post
-    volumes:
-      - ./microservice-db-post/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
 
