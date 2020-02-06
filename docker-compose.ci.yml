@@ -23,3 +23,28 @@ services:
       - ./microservice-db-user/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
+
+  post:
+    hostname: post
+    container_name: microservice_post
+    build: ./microservice-post
+    volumes:
+      - ./microservice-post/src:/usr/app/src
+    environment:
+      WAIT_HOSTS: microservice_db_post:5432
+      PORT: 4002
+      HOSTNAME: 0.0.0.0
+      PGHOST: microservice_db_post
+      PGUSER: postgres
+      PGDATABASE: posts
+      PGPASSWORD: Th1s_Is_p@ssw0rd
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
+
+  database_post:
+    hostname: db-post
+    container_name: microservice_db_post
+    build: ./microservice-db-post
+    volumes:
+      - ./microservice-db-post/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
