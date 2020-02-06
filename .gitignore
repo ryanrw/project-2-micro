@@ -3,4 +3,5 @@
 */dist
 */yarn-error.log
 microservice-db-user/data
+microservice-db-post/data
 .DS_Store
