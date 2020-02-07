@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@apollo/federation": "^0.12.0",
     "apollo-server": "^2.9.16",
     "apollo-server-testing": "^2.9.16",
     "bcrypt": "^3.0.7",

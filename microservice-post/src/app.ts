@@ -3,6 +3,7 @@ require("module-alias/register")
 
 // Library
 import { ApolloServer } from "apollo-server"
+import { buildFederatedSchema } from "@apollo/federation"
 
 // Configuration
 import config from "@config"
@@ -11,13 +12,8 @@ import config from "@config"
 import { typeDefs } from "@typedef/"
 import { resolvers } from "@resolver/"
 
-// Utility and Helper
-import { context } from "@utils/context"
-
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context,
+  schema: buildFederatedSchema([{ typeDefs, resolvers }]),
 })
 
 export function startServer() {
