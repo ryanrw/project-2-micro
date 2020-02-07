@@ -72,3 +72,11 @@ services:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
     ports:
       - 2348:5432
+
+  api_gateway:
+    container_name: gateway
+    build: ./gateway
+    volumes:
+      - ./gateway/src:/usr/app/src
+    ports:
+      - 4000:4000
