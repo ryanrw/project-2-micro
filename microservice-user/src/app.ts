@@ -3,9 +3,17 @@ import { buildFederatedSchema } from "@apollo/federation"
 import config from "./configs"
 import { typeDefs } from "./graphql/typedefs/"
 import { resolvers } from "./graphql/resolvers"
+import { Payload } from "jwt"
+import { CustomHeaderReq } from "header"
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{ typeDefs, resolvers }]),
+  context: ({ req }: { req: CustomHeaderReq }): Payload => {
+    return {
+      userid: req.headers["x-user-id"],
+      username: req.headers["x-username"],
+    }
+  },
 })
 
 export function startServer() {
