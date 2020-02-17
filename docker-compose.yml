@@ -5,6 +5,7 @@ services:
     hostname: user
     container_name: microservice_user
     build: ./microservice-user
+    restart: always
     volumes:
       - ./microservice-user/src:/usr/app/src
     environment:
@@ -18,6 +19,7 @@ services:
     hostname: db-user
     container_name: microservice_db_user
     build: ./microservice-db-user
+    restart: always
     volumes:
       - ./microservice-db-user/data:/var/lib/postgresql/data
     environment:
@@ -29,6 +31,7 @@ services:
     hostname: post
     container_name: microservice_post
     build: ./microservice-post
+    restart: always
     volumes:
       - ./microservice-post/src:/usr/app/src
     environment:
@@ -42,6 +45,7 @@ services:
     hostname: db-post
     container_name: microservice_db_post
     build: ./microservice-db-post
+    restart: always
     volumes:
       - ./microservice-db-post/data:/var/lib/postgresql/data
     environment:
@@ -53,6 +57,7 @@ services:
     hostname: resume
     container_name: microservice_resume
     build: ./microservice-resume
+    restart: always
     volumes:
       - ./microservice-resume/src:/usr/app/src
     environment:
@@ -66,6 +71,7 @@ services:
     hostname: db-resume
     container_name: microservice_db_resume
     build: ./microservice-db-resume
+    restart: always
     volumes:
       - ./microservice-db-resume/data:/var/lib/postgresql/data
     environment:
@@ -76,7 +82,10 @@ services:
   api_gateway:
     container_name: gateway
     build: ./gateway
+    restart: always
     volumes:
       - ./gateway/src:/usr/app/src
     ports:
       - 4000:4000
+    environment:
+      WAIT_HOSTS: microservice_user:4001, microservice_post:4002, microservice_resume:4003
