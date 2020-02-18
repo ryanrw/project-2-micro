@@ -14,7 +14,7 @@ export class AuthenticationContext extends RemoteGraphQLDataSource {
 }
 
 export function context({ req }: { req: Request }): Payload {
-  const authorization = req.headers.authorization || ""
+  const authorization = req?.headers?.authorization
 
   if (authorization) {
     const jwt = authorization.replace("Bearer ", "")

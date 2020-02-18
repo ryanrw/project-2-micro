@@ -6,7 +6,7 @@ import { context, AuthenticationContext } from "./utils/context"
 
 const { userURI, postURI, resumeURI, hostname, port } = config
 
-const gateway = new ApolloGateway({
+export const gateway = new ApolloGateway({
   serviceList: [
     { name: `user`, url: userURI },
     { name: `post`, url: postURI },
