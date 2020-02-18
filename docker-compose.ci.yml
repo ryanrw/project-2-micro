@@ -12,6 +12,7 @@ services:
       PGUSER: postgres
       PGDATABASE: users
       PGPASSWORD: Th1s_Is_p@ssw0rd
+      PGPORT: 5432
       SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
 
   database_user:
@@ -21,7 +22,6 @@ services:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
 
   post:
-    hostname: post
     container_name: microservice_post
     build: ./microservice-post
     environment:
@@ -32,17 +32,16 @@ services:
       PGUSER: postgres
       PGDATABASE: posts
       PGPASSWORD: Th1s_Is_p@ssw0rd
+      PGPORT: 5432
       SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
 
   database_post:
-    hostname: db-post
     container_name: microservice_db_post
     build: ./microservice-db-post
     environment:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
 
   resume:
-    hostname: resume
     container_name: microservice_resume
     build: ./microservice-resume
     environment:
@@ -53,11 +52,21 @@ services:
       PGUSER: postgres
       PGDATABASE: resume
       PGPASSWORD: Th1s_Is_p@ssw0rd
+      PGPORT: 5432
       SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
 
   database_resume:
-    hostname: db-resume
     container_name: microservice_db_resume
     build: ./microservice-db-resume
     environment:
       POSTGRES_PASSWORD: "Th1s_Is_p@ssw0rd"
+
+  api_gateway:
+    container_name: gateway
+    build: ./gateway
+    environment:
+      WAIT_HOSTS: microservice_user:4001, microservice_post:4002, microservice_resume:4003
+      USER_URI: http://microservice_user:4001
+      POST_URI: http://microservice_post:4002
+      RESUME_URI: http://microservice_resume:4003
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=

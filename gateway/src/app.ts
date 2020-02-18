@@ -1,17 +1,20 @@
 import { ApolloServer } from "apollo-server"
-import { ApolloGateway } from "@apollo/gateway"
+import { ApolloGateway, RemoteGraphQLDataSource } from "@apollo/gateway"
 
 import config from "./configs"
-import { context } from "./utils/context"
+import { context, AuthenticationContext } from "./utils/context"
 
 const { userURI, postURI, resumeURI, hostname, port } = config
 
-const gateway = new ApolloGateway({
+export const gateway = new ApolloGateway({
   serviceList: [
     { name: `user`, url: userURI },
     { name: `post`, url: postURI },
     { name: `resume`, url: resumeURI },
   ],
+  buildService({ url }) {
+    return new AuthenticationContext({ url })
+  },
 })
 
 const server = new ApolloServer({
