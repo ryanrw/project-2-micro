@@ -8,6 +8,12 @@ services:
       WAIT_HOSTS: microservice_db_user:5432
       PORT: 4001
       HOSTNAME: 0.0.0.0
+      PGHOST: microservice_db_user
+      PGUSER: postgres
+      PGDATABASE: users
+      PGPASSWORD: Th1s_Is_p@ssw0rd
+      PGPORT: 5432
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
 
   database_user:
     container_name: microservice_db_user
@@ -22,6 +28,12 @@ services:
       WAIT_HOSTS: microservice_db_post:5432
       PORT: 4002
       HOSTNAME: 0.0.0.0
+      PGHOST: microservice_db_post
+      PGUSER: postgres
+      PGDATABASE: posts
+      PGPASSWORD: Th1s_Is_p@ssw0rd
+      PGPORT: 5432
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
 
   database_post:
     container_name: microservice_db_post
@@ -36,6 +48,12 @@ services:
       WAIT_HOSTS: microservice_db_resume:5432
       PORT: 4003
       HOSTNAME: 0.0.0.0
+      PGHOST: microservice_db_resume
+      PGUSER: postgres
+      PGDATABASE: resume
+      PGPASSWORD: Th1s_Is_p@ssw0rd
+      PGPORT: 5432
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
 
   database_resume:
     container_name: microservice_db_resume
@@ -48,3 +66,7 @@ services:
     build: ./gateway
     environment:
       WAIT_HOSTS: microservice_user:4001, microservice_post:4002, microservice_resume:4003
+      USER_URI: http://microservice_user:4001
+      POST_URI: http://microservice_post:4002
+      RESUME_URI: http://microservice_resume:4003
+      SECRET: c2VjcmV0VGhhdEVuY3J5cHRXaXRoQmFzZTY0X25hbWVTRVJSRVQ=
