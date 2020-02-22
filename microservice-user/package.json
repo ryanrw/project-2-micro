@@ -25,16 +25,8 @@
     "@types/lodash.merge": "^4.6.6",
     "@types/pg": "^7.14.1",
     "jest": "^25.1.0",
-    "module-alias": "^2.2.2",
     "ts-jest": "^25.2.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
-  },
-  "_moduleAliases": {
-    "@service": "src/services/",
-    "@utils": "src/utils/",
-    "@config": "src/configs/",
-    "@typedef": "src/graphql/typedefs",
-    "@resolver": "src/graphql/resolvers"
   }
 }
