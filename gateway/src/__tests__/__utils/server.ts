@@ -1,4 +1,4 @@
-import { Payload } from "src/types/jwt"
+import { Payload } from "jwt"
 
 import { ApolloServer } from "apollo-server"
 import { Request } from "express"
