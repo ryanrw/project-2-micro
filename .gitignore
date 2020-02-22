@@ -6,3 +6,4 @@ microservice-db-user/data
 microservice-db-post/data
 microservice-db-resume/data
 .DS_Store
+**/dist/

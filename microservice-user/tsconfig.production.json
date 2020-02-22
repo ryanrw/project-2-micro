@@ -12,7 +12,9 @@
     "traceResolution": true,
     "paths": {
       "*": ["node_modules/*", "src/types/*"]
-    }
+    },
+    "types": []
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/__tests__/**/*"]
 }

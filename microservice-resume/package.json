@@ -6,7 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "tsc --build tsconfig.production.json",
+    "start:production": "node index.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",

@@ -3,7 +3,7 @@ import { Request } from "express"
 
 // Local import
 import { extractJWT } from "./jwt"
-import { Payload } from "src/types/jwt"
+import { Payload } from "jwt"
 import { RemoteGraphQLDataSource } from "@apollo/gateway"
 
 export class AuthenticationContext extends RemoteGraphQLDataSource {
