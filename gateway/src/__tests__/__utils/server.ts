@@ -1,7 +1,6 @@
 import { Payload } from "jwt"
 
 import { ApolloServer } from "apollo-server"
-import { Request } from "express"
 
 import { gateway } from "../../app"
 import { context as defaultContext } from "../../utils/context"
