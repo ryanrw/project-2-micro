@@ -1,5 +1,5 @@
-import createQuery, { database } from "@utils/db"
-import { CustomError } from "@utils/error"
+import createQuery, { database } from "../../utils/db"
+import { CustomError } from "../../utils/error"
 
 export async function deletePost(postid: number) {
   const deletePostQuery = createQuery.delete({

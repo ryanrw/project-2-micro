@@ -2,7 +2,7 @@
 import { ApolloError } from "apollo-server"
 
 // Services
-import { getPost } from "@service/posts/get"
+import { getPost } from "../../../services/posts/get"
 
 // Types and Interfaces
 import { GetPostOption } from "post"

@@ -1,9 +1,9 @@
-import { updatePost } from "@service/posts/update"
+import { updatePost } from "../../../services/posts/update"
 import { UpdatePostResolverOption } from "post"
 import { Payload } from "jwt"
-import { checkPostOwner } from "@service/posts/authorization"
+import { checkPostOwner } from "../../../services/posts/authorization"
 import { ApolloError, AuthenticationError } from "apollo-server"
-import { generateStatus } from "@service/status/generate"
+import { generateStatus } from "../../../services/status/generate"
 
 export default {
   Mutation: {

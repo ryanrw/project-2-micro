@@ -1,11 +1,11 @@
-import { deletePost } from "@service/posts/delete"
+import { deletePost } from "../../../services/posts/delete"
 import { DeletePostResolverOption } from "post"
 // Libery
 import { AuthenticationError, ApolloError } from "apollo-server"
 
 // Services
-import { checkPostOwner } from "@service/posts/authorization"
-import { generateStatus } from "@service/status/generate"
+import { checkPostOwner } from "../../../services/posts/authorization"
+import { generateStatus } from "../../../services/status/generate"
 
 // Types and Interfaces
 import { Payload } from "jwt"

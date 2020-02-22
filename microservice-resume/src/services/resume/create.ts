@@ -1,7 +1,7 @@
-import { database } from "@utils/db"
+import { database } from "../../utils/db"
 import { checkDataExist } from "./check-data-exist"
 import { data } from "./data"
-import { CustomError } from "@utils/error"
+import { CustomError } from "../../utils/error"
 
 export async function createResume() {
   // YOLO - YOU LCREATE (RESUMÉ) ONLY ONE

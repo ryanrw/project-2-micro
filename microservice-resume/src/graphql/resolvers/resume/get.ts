@@ -1,4 +1,4 @@
-import { getResume } from "@service/resume/get"
+import { getResume } from "../../../services/resume/get"
 import { ApolloError } from "apollo-server"
 
 export default {

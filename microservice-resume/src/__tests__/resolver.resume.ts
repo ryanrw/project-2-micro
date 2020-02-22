@@ -2,7 +2,7 @@ import { Payload } from "jwt"
 import create from "../graphql/resolvers/resume/create"
 import get from "../graphql/resolvers/resume/get"
 import deleteResume from "../graphql/resolvers/resume/delete"
-import { data } from "@service/resume/data"
+import { data } from "../services/resume/data"
 
 jest.mock("pg")
 

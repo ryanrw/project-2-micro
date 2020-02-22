@@ -2,8 +2,8 @@
 import { AuthenticationError, ApolloError } from "apollo-server"
 
 // Service
-import { createPost } from "@service/posts/create"
-import { generateStatus } from "@service/status/generate"
+import { createPost } from "../../../services/posts/create"
+import { generateStatus } from "../../../services/status/generate"
 
 // Type and Interface
 import { PostResolverParam } from "post"

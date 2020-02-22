@@ -1,5 +1,5 @@
-import { database } from "@utils/db"
-import { CustomError } from "@utils/error"
+import { database } from "../../utils/db"
+import { CustomError } from "../../utils/error"
 
 export async function deleteResume() {
   const query = `DELETE FROM resume`

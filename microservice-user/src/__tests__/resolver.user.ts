@@ -2,8 +2,8 @@ import create from "../graphql/resolvers/users/create"
 import login from "../graphql/resolvers/users/login"
 import update from "../graphql/resolvers/users/update"
 import deleteUser from "../graphql/resolvers/users/delete"
-import { encrypt } from "@utils/bcrypt"
-import { extractJWT } from "@utils/jwt"
+import { encrypt } from "../utils/bcrypt"
+import { extractJWT } from "../utils/jwt"
 import { Payload } from "jwt"
 
 jest.mock("pg")

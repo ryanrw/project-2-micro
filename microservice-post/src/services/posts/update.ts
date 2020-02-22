@@ -1,6 +1,6 @@
-import createQuery, { database } from "@utils/db"
+import createQuery, { database } from "../../utils/db"
 import { UpdatePostOption } from "post"
-import { CustomError } from "@utils/error"
+import { CustomError } from "../../utils/error"
 
 export async function updatePost(postid: number, post: UpdatePostOption) {
   const [_, setExpression] = createQuery.objectToQuery(post)

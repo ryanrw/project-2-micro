@@ -2,7 +2,7 @@
 import { ApolloError } from "apollo-server"
 
 // Services
-import { getAllPost } from "@service/posts/get"
+import { getAllPost } from "../../../services/posts/get"
 
 export default {
   Query: {

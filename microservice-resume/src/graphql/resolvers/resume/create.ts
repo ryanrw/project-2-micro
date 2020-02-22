@@ -2,8 +2,8 @@
 import { ApolloError } from "apollo-server"
 
 import { Payload } from "jwt"
-import { createResume } from "@service/resume/create"
-import { generateStatus } from "@service/status/generate"
+import { createResume } from "../../../services/resume/create"
+import { generateStatus } from "../../../services/status/generate"
 
 export default {
   Mutation: {

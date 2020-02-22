@@ -1,5 +1,5 @@
 import { ApolloServer } from "apollo-server"
-import { ApolloGateway, RemoteGraphQLDataSource } from "@apollo/gateway"
+import { ApolloGateway } from "@apollo/gateway"
 
 import config from "./configs"
 import { context, AuthenticationContext } from "./utils/context"
@@ -21,6 +21,7 @@ const server = new ApolloServer({
   gateway,
   subscriptions: false,
   context,
+  tracing: true,
 })
 
 export function startGatewayServer() {

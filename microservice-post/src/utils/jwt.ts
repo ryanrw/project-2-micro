@@ -2,7 +2,7 @@
 import jwt from "jsonwebtoken"
 
 // Configuration
-import config from "@config"
+import config from "../configs"
 
 // Type and Interface
 import { Payload } from "jwt"

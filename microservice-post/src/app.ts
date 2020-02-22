@@ -1,17 +1,14 @@
-// One time called module
-require("module-alias/register")
-
 // Library
 import { ApolloServer } from "apollo-server"
 import { buildFederatedSchema } from "@apollo/federation"
 import { Request } from "express"
 
 // Configuration
-import config from "@config"
+import config from "./configs"
 
 // GraphQL
-import { typeDefs } from "@typedef/"
-import { resolvers } from "@resolver/"
+import { typeDefs } from "./graphql/typedefs"
+import { resolvers } from "./graphql/resolvers"
 
 // types and interfaces
 import { Payload } from "jwt"

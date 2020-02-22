@@ -1,6 +1,6 @@
 // Utility and Helper
-import createQuery, { database } from "@utils/db"
-import { CustomError } from "@utils/error"
+import createQuery, { database } from "../../utils/db"
+import { CustomError } from "../../utils/error"
 
 // Type and Interface
 import { GetPostOption, Post } from "post"
