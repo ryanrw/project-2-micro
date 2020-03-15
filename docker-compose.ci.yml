@@ -3,7 +3,9 @@ version: "3"
 services:
   user:
     container_name: microservice_user
-    build: ./microservice-user
+    build:
+      context: ./microservice-user
+      dockerfile: Docker-CI
     environment:
       WAIT_HOSTS: microservice_db_user:5432
       PORT: 4001
@@ -23,7 +25,9 @@ services:
 
   post:
     container_name: microservice_post
-    build: ./microservice-post
+    build:
+      context: ./microservice-post
+      dockerfile: Docker-CI
     environment:
       WAIT_HOSTS: microservice_db_post:5432
       PORT: 4002
@@ -43,7 +47,9 @@ services:
 
   resume:
     container_name: microservice_resume
-    build: ./microservice-resume
+    build:
+      context: ./microservice-resume
+      dockerfile: Docker-CI
     environment:
       WAIT_HOSTS: microservice_db_resume:5432
       PORT: 4003
@@ -63,7 +69,9 @@ services:
 
   api_gateway:
     container_name: gateway
-    build: ./gateway
+    build:
+      context: ./gateway
+      dockerfile: Docker-CI
     environment:
       WAIT_HOSTS: microservice_user:4001, microservice_post:4002, microservice_resume:4003
       USER_URI: http://microservice_user:4001

@@ -24,9 +24,6 @@ jobs:
       - name: list docker process
         run: docker-compose ps
 
-      - name: list env in microservice_user
-        run: docker exec microservice_user printenv
-
       - name: run users test
         run: docker exec microservice_user yarn jest
 
