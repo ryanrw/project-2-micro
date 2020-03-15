@@ -12,6 +12,7 @@ RUN chmod +x /wait
 RUN apk --no-cache add --virtual builds-deps build-base python
 
 RUN yarn &&\
+  yarn global add nodemon &&\
   yarn cache clean
 
 CMD /wait && yarn start
