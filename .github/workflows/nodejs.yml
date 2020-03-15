@@ -24,6 +24,12 @@ jobs:
       - name: list docker process
         run: docker-compose ps
 
+      - name: list docker process
+        run: docker ps
+
+      - name: logs the services
+        run: docker logs microservice_user
+
       - name: run users test
         run: docker exec microservice_user yarn jest
 
